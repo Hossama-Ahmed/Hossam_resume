@@ -10,13 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Professional Calm -->
-    <!-- Application Structure Plan: The SPA is designed as a narrative journey through Hossam's career. It starts with a high-level summary and key impact metrics (dashboard) for quick assessment by busy recruiters. An interactive timeline then provides a chronological overview, allowing users to click and deep-dive into specific roles. The extensive Google experience is organized into tabs for clarity. Key achievements are visualized with charts to make data more digestible and memorable. This structure guides the user from a broad overview to specific details in an engaging, non-linear way, which is more effective than a static document for showcasing impact and expertise. -->
+    <!-- Application Structure Plan: The SPA is designed as a narrative journey through Hossam's career. It starts with a high-level summary and key impact metrics (dashboard) for quick assessment by busy recruiters. An interactive timeline then provides a chronological overview, allowing users to click and deep-dive into specific roles. The extensive Google experience is organized into tabs for clarity. Key achievements are presented with a mix of bolded text and data visualizations to make data digestible and memorable. This structure guides the user from a broad overview to specific details in an engaging, non-linear way, which is more effective than a static document for showcasing impact and expertise. -->
     <!-- Visualization & Content Choices: 
     - Report Info: Key career achievements (cost savings, efficiency gains). Goal: Inform/Impress. Viz/Method: Large number "Stat Cards". Interaction: Subtle hover effects. Justification: Grabs immediate attention and highlights quantifiable success. Method: HTML/Tailwind.
     - Report Info: Career history. Goal: Change/Organize. Viz/Method: Interactive vertical timeline. Interaction: On click, reveals detailed role descriptions below. Justification: Provides a clear, engaging overview of career progression. Method: HTML/CSS/JS.
     - Report Info: Detailed roles at Google. Goal: Organize. Viz/Method: Tabbed content area. Interaction: Click tabs to switch between role details. Justification: Manages a large amount of related information cleanly without cluttering the page. Method: HTML/CSS/JS.
-    - Report Info: Handover process time reduction (43 to <20 days). Goal: Compare. Viz/Method: Bar Chart. Interaction: Hover tooltips. Justification: Visually demonstrates a dramatic process improvement. Library: Chart.js.
-    - Report Info: Forecast accuracy improvement (56% to 87%). Goal: Change. Viz/Method: Bar Chart. Interaction: Hover tooltips. Justification: Clearly shows a significant positive trend in performance. Library: Chart.js.
+    - Report Info: Handover process time reduction and forecast accuracy. Goal: Inform/Compare. Viz/Method: A single "card" per achievement that combines text, a key figure, and a compact bar chart. Interaction: Hover tooltips on charts. Justification: This compact format reduces vertical space and organizes information more logically, making the document more scannable and easier to digest. Library: Chart.js.
     - Report Info: Skills & Certifications. Goal: Inform. Viz/Method: Grid layout with icons. Interaction: None. Justification: Clean, scannable presentation of qualifications. Method: HTML/Tailwind.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -67,13 +66,8 @@
         .chart-container {
             position: relative; 
             width: 100%; 
-            max-width: 600px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            height: 300px;
-            max-height: 400px;
+            height: 120px;
         }
-        @media (min-width: 768px) { .chart-container { height: 350px; } }
     </style>
 </head>
 <body class="bg-primary">
@@ -100,16 +94,16 @@
         
         <section id="summary" class="bg-secondary rounded-lg shadow-lg p-8 mb-12 text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Hossam Ahmed</h1>
-            <h2 class="text-xl md:text-2xl text-accent mt-2">Strategic Leader in Global Connectivity & Program Management</h2>
+            <h2 class="text-xl md:text-2xl text-accent mt-2">Strategic Leader in Internet Connectivity & AI Networking</h2>
             <p class="mt-6 max-w-4xl mx-auto text-gray-600 leading-relaxed">
-                Strategic leader with over 20 years of experience driving transformational change in global connectivity and network engineering. My career is defined by a consistent ability to translate complex challenges into quantifiable business results, including securing hundreds of millions of dollars in cost avoidance and pioneering new processes that reduced manual toil by 94%. With deep expertise in the telecom and peering ecosystems of both North America and the Middle East, I am a proven leader in architecting innovative solutions for the future demands of AI and cloud at a global scale.
+                Strategic leader with over 20 years of experience driving transformational change in global internet connectivity and interconnect engineering for WAN and Edge networks. My career is defined by a consistent ability to translate complex challenges into quantifiable business results, including securing hundreds of millions of dollars in cost avoidance and pioneering new processes that reduced manual toil by 94%. With deep expertise in the telecom and peering ecosystems of both North America and the Middle East, I am a proven leader in building and guiding teams through organizational change and architecting solution designs that enabled both Google's internal products and Cloud & AI deals.
             </p>
         </section>
 
         <section id="impact" class="mb-12">
             <h3 class="text-3xl font-bold text-center text-gray-800 mb-8">Career Highlights & Impact</h3>
              <div class="text-center mb-8 max-w-3xl mx-auto">
-                <p class="text-gray-600">This section provides a snapshot of key quantifiable achievements throughout my career. These metrics represent significant improvements in efficiency, cost savings, and operational excellence. The charts below offer a visual deep-dive into two specific examples of process transformation and performance enhancement.</p>
+                <p class="text-gray-600">This section provides a snapshot of key quantifiable achievements throughout my career. These metrics represent significant improvements in efficiency, cost savings, and operational excellence.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
                 <div class="bg-secondary p-6 rounded-lg shadow-md">
@@ -129,18 +123,28 @@
                     <p class="text-gray-600 mt-2">Increase in Forecast Accuracy</p>
                 </div>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 <div class="bg-secondary p-6 rounded-lg shadow-md">
-                    <h4 class="text-xl font-semibold text-center mb-4 text-gray-700">Handover Process Turnaround</h4>
+                    <h4 class="text-lg font-semibold mb-2 text-accent">Handover Process Turnaround</h4>
+                    <p class="text-gray-700 mb-4">Reduced the average turnaround time for handover from <strong>Design/Architecture to Deployments</strong> by over 50% (from 43 to less than 20 days).</p>
                     <div class="chart-container">
                         <canvas id="turnaroundTimeChart"></canvas>
                     </div>
                 </div>
                 <div class="bg-secondary p-6 rounded-lg shadow-md">
-                    <h4 class="text-xl font-semibold text-center mb-4 text-gray-700">100G Forecast Accuracy</h4>
-                     <div class="chart-container">
+                    <h4 class="text-lg font-semibold mb-2 text-accent">100G Forecast Accuracy</h4>
+                    <p class="text-gray-700 mb-4">Improved forecast accuracy from 56% to 87%, saving significant costs on unneeded hardware builds.</p>
+                    <div class="chart-container">
                         <canvas id="forecastAccuracyChart"></canvas>
                     </div>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold mb-2 text-accent">Cost Optimization</h4>
+                    <p class="text-gray-700">Spearheaded an automated material forecasting system that resulted in a <strong>hundreds of millions of dollars reduction</strong> in material forecast and the cancellation of open POs valued in the double-digit millions.</p>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-lg font-semibold mb-2 text-accent">Strategic Growth</h4>
+                    <p class="text-gray-700">Architected a solution for direct connectivity with critical enterprise customers, which enabled the timely delivery of <strong>multi-billion dollar AI cloud deals</strong>.</p>
                 </div>
             </div>
         </section>
@@ -148,7 +152,7 @@
         <section id="experience" class="mb-12">
             <h3 class="text-3xl font-bold text-center text-gray-800 mb-8">Professional Experience</h3>
              <div class="text-center mb-8 max-w-3xl mx-auto">
-                <p class="text-gray-600">My professional journey reflects a consistent path of growth and increasing responsibility. The interactive sections below detail my roles and accomplishments, with a special focus on the strategic initiatives and innovations I led at Google. Use the tabs to explore the specifics of each role within the company.</p>
+                <p class="text-gray-600">My professional journey reflects a consistent path of growth and increasing responsibility. The sections below detail my roles and accomplishments across my career, including strategic initiatives and innovations I led at Google and Orange. Use the tabs to explore the specifics of each role within the respective company.</p>
             </div>
             <div class="bg-secondary p-8 rounded-lg shadow-lg">
                 <div class="flex justify-center mb-8 border-b-2">
@@ -199,7 +203,7 @@
                         duration: "2024 - Present",
                         points: [
                             "Currently serving as a technical lead, driving the strategic vision for network architecture and standards, focusing on future-proofing the network to meet the demands of AI and cloud growth.",
-                            "Secured approval for the Cross-Site Interconnect (CSI) Dev Entry, working in close partnership with Product and Engineering teams to build a solution that enabled the launch of the first phase on a 10G network and laid the groundwork for future scalability to handle larger flows.",
+                            "Secured approval for the Cross-Site Interconnect (CSI) Dev Entry, working in close partnership with Product and Engineering teams to build a solution that enabled the launch of the first phase on a 10G network and laid the groundwork for future scalability to handle larger/elephant flows.",
                             "Authored the business case and drove alignment across multiple organizations to enable 400ZR for the Edge network, a proactive initiative that helped get resources assigned and have a formal New Product Introduction (NPI) team to land it."
                         ]
                     },
@@ -207,8 +211,9 @@
                         title: "Edge-Design Manager",
                         duration: "2020 - 2024",
                         points: [
+                            "Established a new team by creating a clear vision and mission, and guided the team through a significant reorganization process, ensuring a smooth transition and continued high performance.",
                             "Led a team of 14 Network Engineers and TPMs to innovate, design, and implement standardized and scalable network architecture.",
-                            "Transformed the handover process between the Design and Deploy teams, reducing the average turnaround time from 43 days to less than 20 days by introducing a structured workflow with programmatic linkage to business requirements.",
+                            "Transformed the handover process between the Design and Deploy teams, reducing the average turnaround time by over 50% by introducing a structured workflow with programmatic linkage to business requirements.",
                             "Spearheaded the initiative to deprecate manual material forecasting, implementing an automated system that resulted in a hundreds of millions of dollars reduction in material forecast and the cancellation of open POs valued in the double-digit millions.",
                             "Architected and drove a strategic solution for direct connectivity with critical enterprise customers, which improved cost and reliability by bypassing traditional colocation facilities. This initiative, which included deploying network machines directly on the data center floor, enabled the timely delivery of multi-billion dollar AI cloud deals."
                         ]
@@ -217,9 +222,10 @@
                         title: "Peering Program Manager",
                         duration: "2015 - 2020",
                         points: [
-                            "Joined Google as the first Peering Planner in NCD, focusing on capacity planning and improving user experience with Google products.",
+                            "Part of the early stages of Google's Edge peering planning team, where we established a team focused on building relationships with the internet and telecom community to spread Google's network presence to improve network reliability and end-user experience.",
+                            "Drove the launch of low-latency solutions to enable gaming and early Google Cloud offerings in the Middle East region..",
                             "Automated peering turn-ups and developed a forecasting model that improved 100G forecast accuracy from 56% to 87%, saving significant costs on unneeded hardware builds.",
-                            "Shifted focus to Africa and the Middle East, where he spearheaded the building of peering points of presence and expanded the global cache program to go deeper into more locations to improve customer experience.",
+                            "Spearheaded the building of peering points of presence in Africa and the Middle East, expanding the global cache program to go deeper into more locations to improve customer experience.",
                             "Helped launch key products like YouTube TV and Stadia."
                         ]
                     }
@@ -232,12 +238,12 @@
                     {
                         title: "Program Manager",
                         duration: "2009 - 2015",
-                        points: ["Managed Orange's Edge network, with full responsibility for the USA footprint including gear installation, circuit build, peering, and migration plans."]
+                        points: ["Managed Orange's Edge network, with full responsibility for the USA footprint including gear installation, circuit build, peering, and migration plans. Additionally, led a nationwide program to optimize S&P (Space and Power) usage and billing across the network."]
                     },
                     {
                         title: "Manager / Network Engineer",
                         duration: "2005 - 2009",
-                        points: ["Joined Equant (later Orange) as one of the first 50 Network Engineers in their Cairo operations center."]
+                        points: ["Joined Equant as one of the first 50 Network Engineers in its Cairo operations center. Directly supported multinational clients, monitoring mission-critical sites, improving response times, and running Service Improvement Plans (SIPs) to improve customer experience scores."]
                     }
                 ]
             },
@@ -256,7 +262,7 @@
 
         const skillsData = {
             network: ["Network Architecture & Engineering", "Traffic Management", "Network Topology", "Automated Workflows", "Network Reliability", "Optical Networking"],
-            tools: ["Digital Control Systems", "Process Improvement", "Capacity Planning", "Material Forecasting", "Program Management", "Peering and Interconnect Strategy"]
+            tools: ["Digital Control Systems", "Process Improvement", "Capacity Planning", "Material Forecasting", "Program Management", "Peering and Interconnect Strategy", "Organizational Structure & Change Management"]
         };
 
         const educationData = [
@@ -266,27 +272,29 @@
         ];
         
         const resumeText = `Hossam Ahmed
-Strategic Leader in Global Connectivity & Program Management
-Strategic leader with over 20 years of experience driving transformational change in global connectivity and network engineering. My career is defined by a consistent ability to translate complex challenges into quantifiable business results, including securing hundreds of millions of dollars in cost avoidance and pioneering new processes that reduced manual toil by 94%. With deep expertise in the telecom and peering ecosystems of both North America and the Middle East, I am a proven leader in architecting innovative solutions for the future demands of AI and cloud at a global scale.
+Strategic Leader in Internet Connectivity & AI Networking
+Strategic leader with over 20 years of experience driving transformational change in global internet connectivity and interconnect engineering for WAN and Edge networks. My career is defined by a consistent ability to translate complex challenges into quantifiable business results, including securing hundreds of millions of dollars in cost avoidance and pioneering new processes that reduced manual toil by 94%. With deep expertise in the telecom and peering ecosystems of both North America and the Middle East, I am a proven leader in building and guiding teams through organizational change and architecting solution designs that enabled both Google's internal products and Cloud & AI deals.
 Experience
 Google | 2015 - Present
 Tech Lead, Network Architecture and Standards | 2024 - Present
 Currently serving as a technical lead, driving the strategic vision for network architecture and standards, focusing on future-proofing the network to meet the demands of AI and cloud growth.
-Secured approval for the Cross-Site Interconnect (CSI) Dev Entry, working in close partnership with Product and Engineering teams to build a solution that enabled the launch of the first phase on a 10G network and laid the groundwork for future scalability to handle larger flows.
+Secured approval for the Cross-Site Interconnect (CSI) Dev Entry, working in close partnership with Product and Engineering teams to build a solution that enabled the launch of the first phase on a 10G network and laid the groundwork for future scalability to handle larger/elephant flows.
 Authored the business case and drove alignment across multiple organizations to enable 400ZR for the Edge network, a proactive initiative that helped get resources assigned and have a formal New Product Introduction (NPI) team to land it.
 Edge-Design Manager | 2020 - 2024
+Established a new team by creating a clear vision and mission, and guided the team through a significant reorganization process, ensuring a smooth transition and continued high performance.
 Led a team of 14 Network Engineers and TPMs to innovate, design, and implement standardized and scalable network architecture.
-Transformed the handover process between the Design and Deploy teams, reducing the average turnaround time from 43 days to less than 20 days by introducing a structured workflow with programmatic linkage to business requirements.
+Transformed the handover process between the Design and Deploy teams, reducing the average turnaround time by over 50% by introducing a structured workflow with programmatic linkage to business requirements.
 Spearheaded the initiative to deprecate manual material forecasting, implementing an automated system that resulted in a hundreds of millions of dollars reduction in material forecast and the cancellation of open POs valued in the double-digit millions.
 Architected and drove a strategic solution for direct connectivity with critical enterprise customers, which improved cost and reliability by bypassing traditional colocation facilities. This initiative, which included deploying network machines directly on the data center floor, enabled the timely delivery of multi-billion dollar AI cloud deals.
 Peering Program Manager | 2015 - 2020
-Joined Google as the first Peering Planner in NCD, focusing on capacity planning and improving user experience with Google products.
+Part of the early stages of Google's Edge peering planning team, where we established a team focused on building relationships with the internet and telecom community to spread Google's network presence to improve network reliability and end-user experience.
+Drove the launch of low-latency solutions to enable gaming and early Google Cloud offerings in the Middle East region..
 Automated peering turn-ups and developed a forecasting model that improved 100G forecast accuracy from 56% to 87%, saving significant costs on unneeded hardware builds.
-Shifted focus to Africa and the Middle East, where he spearheaded the building of peering points of presence and expanded the global cache program to go deeper into more locations to improve customer experience.
+Spearheaded the building of peering points of presence in Africa and the Middle East, expanding the global cache program to go deeper into more locations to improve customer experience.
 Helped launch key products like YouTube TV and Stadia.
 Orange Business Services | 2005 - 2015
-Program Manager (2009 - 2015): Managed Orange's Edge network, with full responsibility for the USA footprint including gear installation, circuit build, peering, and migration plans.
-Manager / Network Engineer (2005 - 2009): Joined Equant (later Orange) as one of the first 50 Network Engineers in their Cairo operations center.
+Program Manager (2009 - 2015): Managed Orange's Edge network, with full responsibility for the USA footprint including gear installation, circuit build, peering, and migration plans. Additionally, led a nationwide program to optimize S&P (Space and Power) usage and billing across the network.
+Manager / Network Engineer (2005 - 2009): Joined Equant as one of the first 50 Network Engineers in its Cairo operations center. Directly supported multinational clients, monitoring mission-critical sites, improving response times, and running Service Improvement Plans (SIPs) to improve customer experience scores.
 Site Engineer / Field Engineer | 2003 - 2005
 Gained hands-on experience with field DCS and onshore drilling operations, including working on light current systems and rolling out Emerson DCS.
 Education & Certifications
@@ -295,7 +303,7 @@ Executive Certificate in Organizational Consulting and Change Leadership, George
 Certifications: PMP, ITIL® Expert 2011, COBIT® 5, CCNA, Change Management Practitioner, CCNP (Routing & Switching).
 Technical Skills
 Network Technologies: Network Architecture & Engineering, Traffic Management, Network Topology, Automated Workflows, Network Reliability, Optical Networking.
-Tools & Systems: Digital Control Systems, Process Improvement, Capacity Planning, Material Forecasting, Program Management, Peering and Interconnect Strategy.`;
+Tools & Systems: Digital Control Systems, Process Improvement, Capacity Planning, Material Forecasting, Program Management, Peering and Interconnect Strategy, Organizational Structure & Change Management.`;
 
         document.addEventListener('DOMContentLoaded', () => {
             const experienceTabs = document.getElementById('experience-tabs');
@@ -351,11 +359,10 @@ Tools & Systems: Digital Control Systems, Process Improvement, Capacity Planning
             });
             eduContainer.innerHTML = eduHtml;
 
-
             new Chart(document.getElementById('turnaroundTimeChart'), {
                 type: 'bar',
                 data: {
-                    labels: ['Before Transformation', 'After Transformation'],
+                    labels: ['Before', 'After'],
                     datasets: [{
                         label: 'Turnaround Time (Days)',
                         data: [43, 19],
@@ -367,15 +374,16 @@ Tools & Systems: Digital Control Systems, Process Improvement, Capacity Planning
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { y: { beginAtZero: true, max: 50, title: { display: true, text: 'Days' } } },
-                    plugins: { legend: { display: false } }
+                    scales: { y: { beginAtZero: true, max: 50, display: false } },
+                    plugins: { legend: { display: false } },
+                    layout: { padding: { top: 10, bottom: 10 } }
                 }
             });
 
             new Chart(document.getElementById('forecastAccuracyChart'), {
                 type: 'bar',
                 data: {
-                    labels: ['Previous Accuracy', 'Improved Accuracy'],
+                    labels: ['Previous', 'Improved'],
                     datasets: [{
                         label: 'Forecast Accuracy (%)',
                         data: [56, 87],
@@ -387,8 +395,9 @@ Tools & Systems: Digital Control Systems, Process Improvement, Capacity Planning
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Accuracy %' } } },
-                    plugins: { legend: { display: false } }
+                    scales: { y: { beginAtZero: true, max: 100, display: false } },
+                    plugins: { legend: { display: false } },
+                    layout: { padding: { top: 10, bottom: 10 } }
                 }
             });
             
